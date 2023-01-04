@@ -200,6 +200,7 @@ class cachestore_memcached extends cache_store implements cache_is_configurable 
         $this->options[Memcached::OPT_PREFIX_KEY] = $this->prefix = (string)$prefix;
         $this->options[Memcached::OPT_HASH] = $hashmethod;
         $this->options[Memcached::OPT_BUFFER_WRITES] = $bufferwrites;
+        $this->options[Memcached::OPT_CLIENT_MODE] = Memcached::DYNAMIC_CLIENT_MODE;
 
         $this->connection = new Memcached(crc32($this->name));
         $servers = $this->connection->getServerList();
